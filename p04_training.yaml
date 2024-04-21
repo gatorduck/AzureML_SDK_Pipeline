@@ -1,0 +1,15 @@
+$schema https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+name: train_diabetes_model
+display_name: train diabetes model
+type: command
+inputs:
+  prepped_data:
+    type: uri_folder
+outputs:
+  training_output:
+    type: uri_folder
+code: ./src
+environment: azureml:python_env@latest
+command: >-
+  python p04_training.py
+  --prepped_data ${{inputs.prepped_data}}
