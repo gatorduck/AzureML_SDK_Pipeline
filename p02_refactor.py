@@ -2,6 +2,7 @@
 # refactor
 
 # we will be creating a two component pipeline with this example, including a data prep component + training component
+# illustrating the changes by combining both components into one script, however I will have to separate scripts
 
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report

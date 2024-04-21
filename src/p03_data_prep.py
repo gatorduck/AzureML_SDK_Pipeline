@@ -18,13 +18,13 @@ def main(args):
     df_prepped.to_csv(os.path.join(args.prepped_data, "prepped_data.csv"), index=False)
 
 def get_data(filepath):
-
+    """ function used to read blob given a uri """
     df = pd.read_csv(filepath)
 
     return df
 
 def data_prep(df):
-
+    """ scale numeric columns """
     #separate numeric columns ( excluding last column)
     numeric_columns = df.select_dtypes(include=['float64','int64']).columns[:-1]
 
@@ -38,7 +38,7 @@ def data_prep(df):
     return df
 
 def parse_args():
-
+    """ read args passed to script"""
     parser = argparse.ArgumentParser()
 
     parser.add_argument("--input_data", type=str)

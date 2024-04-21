@@ -18,7 +18,7 @@ mlflow.autolog()
 
 
 def main(args):
-
+    """ main function for this script """
     df = get_data(select_first_file(args.prepped_data))
 
     # separate features and target
@@ -48,16 +48,18 @@ def main(args):
     mlflow.end_run()
 
 def select_first_file(path):
+    """ select first file from path, assume only one file to be read, otherwise will have to iterate"""
     files = os.listdir(path)
     return os.path.join(path, files[0])
 
 def get_data(filepath):
-
+    """ function used to read blob given a uri """
     df = pd.read_csv(filepath)
 
     return df
 
 def parse_args():
+    """ read args passed to script"""
 
     parser = argparse.ArgumentParser()
 

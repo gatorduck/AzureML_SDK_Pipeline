@@ -1,7 +1,18 @@
-# Creating Machine Learning Pipelines with Python SDKv2
+# Creating Machine Learning Pipelines with Python SDKv2 in Azure Machine Learning
 
 There are many ways to create pipelines in Azure Machine Learning. This method uses a programmatic approach with the Python SDK (software development kit). This approach is ideal for developing pipelines and experimenting. For production, use CLI and the AML extension.
 
+<center>
+
+```mermaid
+
+flowchart TB
+    subgraph pipeline with sdkv2
+    c1(data prep component) --> c2(training component)
+    end
+    
+```
+</center>
 
 The files are setup to follow a sequence of steps that mimic an ML workflow.
 
@@ -26,6 +37,19 @@ _p02_refactor.py_
 Note we have removed reference to our workspace and data filepaths.
 
 ### 2a - Components with Python SDKv2
+
+<center>
+
+```mermaid
+
+flowchart LR
+    script:::bar --> notebook:::foobar --> component
+    classDef bar stroke:#0f0
+    classDef foobar stroke:#00f
+
+```    
+
+</center>
 
 We create components using two approaches, with Python SDK we define the structure of our component and another example we define a component with a yaml file.
 
@@ -54,7 +78,21 @@ _p03_create_data_prep_component.ipynb_
 We will create the actual component using a notebook with python sdks _command_ function. We also take an additional step and register this component into our AML workspace.
 
 
-### 2b - Components with CLIv2
+### 2b - Components with yaml
+
+<center>
+
+```mermaid
+
+flowchart LR
+    yaml:::foo & script:::bar --> notebook:::foobar --> component
+    classDef foo stroke:#f00
+    classDef bar stroke:#0f0
+    classDef foobar stroke:#00f
+
+```    
+
+</center>
 
 This approach defines our component using a yaml file. 
 
@@ -69,6 +107,14 @@ yaml file holding component inputs, outputs, script reference, and environment.
 _p04_training.py_
 
 Our actual script that is executed when running the training component. 
+
+
+## 3 create our pipeline
+
+_p05_create_pipeline.ipynb_
+
+This last notebook creates our pipeline. Because we didn't specify compute type in our components we specify the compute resource to run this pipeline. We can also define different computes per component, would make sense to use GPU or Spark Cluster for just the training component and CPU compute for data prep.
+
 
 
 
