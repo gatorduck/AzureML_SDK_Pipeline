@@ -1,4 +1,15 @@
-# Creating Machine Learning Pipelines with Python SDKv2 in Azure Machine Learning
+
+# About
+
+This repo illustrates creating a machine learning pipeline in the cloud with the python sdk and used to develop a model to predict a patients blood pressure given several features e.g. insulin,BMI and many more. This is based on the UC Irvine Diabetes dataset found below.
+
+https://archive.ics.uci.edu/dataset/34/diabetes
+
+
+This scenario solves a regression problem, in this case a continuous numeric value for blood pressure. The main purpose is primarily to guide in the creation of a pipeline using Azure Machine Learning and the Python SDK.
+
+
+## Creating Machine Learning Pipelines with Python SDKv2 in Azure Machine Learning
 
 There are many ways to create pipelines in Azure Machine Learning. This method uses a programmatic approach with the Python SDK (software development kit). This approach is ideal for developing pipelines and experimenting. For production, I recommend the CLI and the AML extension which helps create a production grade pipeline.
 
@@ -14,9 +25,7 @@ flowchart TB
 ```
 </center>
 
-The files are setup to follow a sequence of steps that mimic an ML workflow. I illustrate a simple component based pipeline with the UC Irvine Diabetes dataset. 
-
-https://archive.ics.uci.edu/dataset/34/diabetes
+The files are setup to follow a sequence of steps that mimic an ML workflow starting with _p01_.
 
 
 ## 1 development 
