@@ -1,6 +1,6 @@
 # Creating Machine Learning Pipelines with Python SDKv2 in Azure Machine Learning
 
-There are many ways to create pipelines in Azure Machine Learning. This method uses a programmatic approach with the Python SDK (software development kit). This approach is ideal for developing pipelines and experimenting. For production, use CLI and the AML extension.
+There are many ways to create pipelines in Azure Machine Learning. This method uses a programmatic approach with the Python SDK (software development kit). This approach is ideal for developing pipelines and experimenting. For production, I recommend the CLI and the AML extension which helps create a production grade pipeline.
 
 <center>
 
@@ -14,7 +14,9 @@ flowchart TB
 ```
 </center>
 
-The files are setup to follow a sequence of steps that mimic an ML workflow.
+The files are setup to follow a sequence of steps that mimic an ML workflow. I illustrate a simple component based pipeline with the UC Irvine Diabetes dataset. 
+
+https://archive.ics.uci.edu/dataset/34/diabetes
 
 
 ## 1 development 
@@ -115,6 +117,14 @@ _p05_create_pipeline.ipynb_
 
 This last notebook creates our pipeline. Because we didn't specify compute type in our components we specify the compute resource to run this pipeline. We can also define different computes per component, would make sense to use GPU or Spark Cluster for just the training component and CPU compute for data prep.
 
+Benefits 
+
++ we have a pipeline stood up primarily python
++ 
+
+Drawbacks
+
+- reproducibility is important, CLI is best for this
 
 
 
